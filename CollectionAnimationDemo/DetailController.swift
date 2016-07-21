@@ -21,18 +21,24 @@ class DetailController: UIViewController,UICollectionViewDelegate,UICollectionVi
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Register cell classes
+        self.view.backgroundColor = UIColor.white()
         
-        detailCollectionview = UICollectionView(frame: CGRect(x: 0, y: 0, width: screen_width, height: screen_height))
+        
+        let rect = CGRect(x: 0, y: 0, width: screen_width, height: screen_height)
+        
+        detailCollectionview = UICollectionView(frame:rect,collectionViewLayout:layout)
         detailCollectionview.delegate = self
         detailCollectionview.dataSource = self
         self.detailCollectionview?.collectionViewLayout = layout
+        
+        self.view.addSubview(detailCollectionview)
+        
+        detailCollectionview.backgroundColor = UIColor.white()
+        
         self.detailCollectionview!.register(CollectionCell.self, forCellWithReuseIdentifier: reuseIdentifier)
 
-        // Do any additional setup after loading the view.
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -65,7 +71,6 @@ class DetailController: UIViewController,UICollectionViewDelegate,UICollectionVi
 
      func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
      
-    
         var cell:UICollectionViewCell? = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
         if(cell == nil){
             cell = CollectionCell()

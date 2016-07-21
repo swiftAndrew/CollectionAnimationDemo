@@ -163,6 +163,11 @@ class FlowLayoutWithAnimation: UICollectionViewFlowLayout {
     }
     
     override func shouldInvalidateLayout(forBoundsChange newBounds: CGRect) -> Bool {
+        
+        if(self.collectionView == nil){
+         return false
+        }
+        
         let oldBounds = self.collectionView?.bounds
         if(!__CGSizeEqualToSize((oldBounds?.size)!, newBounds.size)){
          return true
