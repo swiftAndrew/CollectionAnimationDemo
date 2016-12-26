@@ -188,7 +188,6 @@ class ViewController: UIViewController,UICollectionViewDataSource,UICollectionVi
 //        NSIndexPath *indexPath = [[self.collectionView indexPathsForSelectedItems] firstObject];
         
         let detail = DetailController()
-//        detail.useLayoutToLayoutNavigationTransitions  = true
         detail.layout =  collectionView.collectionViewLayout
         detail.itemCount = itemCounts[indexPath.section] as! Int
         selectedItem = indexPath.item
